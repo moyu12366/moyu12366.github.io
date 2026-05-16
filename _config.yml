@@ -4,7 +4,7 @@ SEOTitle: 红西的博客 | hongxi Blog
 header-img: img/home-bg.jpg
 email: thx2626510@163.com
 description: "这里是 @hongxi 红西 的个人博客，与你一起发现更大的世界 | 要做一个乐观的人"
-keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, Web, JavaScript, React, React Native, 前端, 设计"
+keyword: "红西, hongxi, 红西的博客, hongxi Blog, 个人网站, 互联网, Web, 前端"
 url: "https://huangxuan.me" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -74,8 +74,8 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "要做一个有 swag 的程序员 <br> React Team @ Meta"
-sidebar-avatar: https://github.com/Huxpro.png # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "要做一个乐观的人 <br> React Team @ Meta"
+sidebar-avatar: https://github.com/moyu12366.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
 featured-tags: true # whether or not using Feature-Tags
