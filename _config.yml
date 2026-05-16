@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: thx2626510@163.com
 description: "这里是 @hongxi 红西 的个人博客，与你一起发现更大的世界 | 要做一个乐观的人"
 keyword: "红西, hongxi, 红西的博客, hongxi Blog, 个人网站, 电脑技术, 数码, 生活"
-url: "https://moyu12366.github.io" # your host, for absolute URL
+url: "https://taohx.ccwu.cc" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
