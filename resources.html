@@ -410,14 +410,16 @@ header-mask: 0.3
 </div>
 
 <script>
-    let ADMIN_PASSWORD = '';
+    let API_BASE = 'https://reliable-daifuku-c6a219.netlify.app';
 
     // 页面加载时获取动态资源
     document.addEventListener('DOMContentLoaded', function() {
         loadDynamicResources();
+        
+        // 绑定按钮点击事件
+        document.getElementById('submitBtn').addEventListener('click', showSubmitModal);
+        document.getElementById('adminBtn').addEventListener('click', showAdminModal);
     });
-
-    let API_BASE = 'https://reliable-daifuku-c6a219.netlify.app';
 
     // 加载动态资源
     async function loadDynamicResources() {
@@ -438,7 +440,7 @@ header-mask: 0.3
             }
         } catch (e) {
             console.error(e);
-            container.innerHTML = '<p>加载失败</p>';
+            container.innerHTML = '<p>暂无用户提交的资源</p>';
         }
     }
 
