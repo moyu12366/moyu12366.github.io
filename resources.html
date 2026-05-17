@@ -452,7 +452,7 @@ header-mask: 0.3
     async function loadDynamicResources() {
         const container = document.getElementById('dynamicResources');
         try {
-            const response = await fetch(API_BASE + '/resources');
+            const response = await fetch(API_BASE + '/submit');
             const result = await response.json();
 
             if (result.success && result.data.length > 0) {
@@ -485,7 +485,7 @@ header-mask: 0.3
         }
 
         try {
-            const fullUrl = API_BASE + '/resources';
+            const fullUrl = API_BASE + '/submit';
             console.log('📤 发送请求到:', fullUrl);
             
             const response = await fetch(fullUrl, {
@@ -532,7 +532,7 @@ header-mask: 0.3
         }
 
         try {
-            const response = await fetch(API_BASE + '/approve?password=' + encodeURIComponent(ADMIN_PASSWORD), {
+            const response = await fetch(API_BASE + '/admin?password=' + encodeURIComponent(ADMIN_PASSWORD), {
                 method: 'GET'
             });
 
@@ -570,7 +570,7 @@ header-mask: 0.3
     // 审核通过资源
     async function approveResource(id) {
         try {
-            const response = await fetch(API_BASE + '/approve', {
+            const response = await fetch(API_BASE + '/admin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id, password: ADMIN_PASSWORD })
