@@ -42,16 +42,15 @@ if(navigator.serviceWorker){
   // register message receiver
   // https://dbwriteups.wordpress.com/2015/11/16/service-workers-part-3-communication-between-sw-and-pages/
   navigator.serviceWorker.onmessage = (e) => {
-    console.log('SW: SW Broadcasting:', event);
+    console.log('SW: SW Broadcasting:', e);
     const data = e.data
     
     if(data.command == "UPDATE_FOUND"){
       console.log("UPDATE_FOUND_BY_SW", data);
-      createSnackbar({
-        message: "Content updated.",
-        actionText:"refresh",
-        action: function(e){location.reload()}
-      })
+      // 当检测到新版本时，提示用户刷新
+      if (confirm("检查到网站有新版本更新，是否立即刷新体验？")) {
+        window.location.reload();
+      }
     }
   }
 }
