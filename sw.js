@@ -103,7 +103,22 @@ const getRedirectUrl = (req) => {
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE).then(cache => {
-      return cache.addAll(PRECACHE_LIST)
+      // 使用单独缓存，一个失败不影响其他
+      const cachePromises = PRECACHE_LIST.map(url => {
+        return fetch(url).then(response => {
+          if (response.ok) {
+            return cache.put(url, response);
+          } else {
+            console.log('缓存失败:', url);
+            return Promise.resolve();
+          }
+        }).catch(err => {
+          console.log('缓存请求失败:', url, err);
+          return Promise.resolve();
+        });
+      });
+      
+      return Promise.all(cachePromises)
         .then(self.skipWaiting())
         .catch(err => console.log(err))
     })
