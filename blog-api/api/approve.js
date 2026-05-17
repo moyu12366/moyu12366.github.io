@@ -18,7 +18,7 @@ exports.handler = async (event, context) => {
   }
 
   if (event.httpMethod === 'GET') {
-    const password = event.headers['x-admin-password'];
+    const password = event.queryStringParameters.password;
     if (password !== ADMIN_PASSWORD) return { statusCode: 401, headers, body: JSON.stringify({ success: false, error: '密码错误' }) };
 
     const { data, error } = await supabase

@@ -505,9 +505,8 @@ header-mask: 0.3
         }
 
         try {
-            const response = await fetch(API_BASE + '/approve', {
-                method: 'GET',
-                headers: { 'x-admin-password': ADMIN_PASSWORD }
+            const response = await fetch(API_BASE + '/approve?password=' + encodeURIComponent(ADMIN_PASSWORD), {
+                method: 'GET'
             });
 
             const result = await response.json();
