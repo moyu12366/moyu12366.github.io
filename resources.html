@@ -477,19 +477,28 @@ header-mask: 0.3
         const url = document.getElementById('resourceUrl').value.trim();
         const description = document.getElementById('resourceDesc').value.trim();
 
+        console.log('🚀 准备提交资源:', { name, url, description });
+
         if (!name || !url) {
             alert('网站名称和链接不能为空！');
             return;
         }
 
         try {
-            const response = await fetch(API_BASE + '/resources', {
+            const fullUrl = API_BASE + '/resources';
+            console.log('📤 发送请求到:', fullUrl);
+            
+            const response = await fetch(fullUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, url, description })
             });
 
+            console.log('📥 响应状态:', response.status);
+            console.log('📥 响应头部:', response.headers);
+
             const result = await response.json();
+            console.log('📋 响应结果:', result);
 
             if (result.success) {
                 alert('提交成功！等待管理员审核');
@@ -507,8 +516,8 @@ header-mask: 0.3
                 alert('提交失败：' + result.error);
             }
         } catch (e) {
-            alert('提交失败，请稍后重试');
-            console.error(e);
+            console.error('❌ 请求异常:', e);
+            alert('提交失败，请稍后重试。错误信息已输出到控制台。');
         }
     }
 
