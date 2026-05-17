@@ -404,7 +404,7 @@ header-mask: 0.3
             <button onclick="loadPendingResources()" class="btn btn-primary">查看待审核</button>
             <div id="pendingList" style="margin-top: 20px;"></div>
             <div style="margin-top: 20px;">
-                <button onclick="closeModal('adminModal')" class="btn btn-default">关闭</button>
+                <button onclick="closeAdminModal()" class="btn btn-default">关闭</button>
             </div>
         </div>
     </div>
@@ -434,6 +434,18 @@ header-mask: 0.3
     // 关闭弹窗
     function closeModal(id) {
         document.getElementById(id).style.display = 'none';
+    }
+
+    // 关闭审核面板弹窗并清空数据
+    function closeAdminModal() {
+        // 清空密码输入框
+        document.getElementById('adminPassword').value = '';
+        // 清空待审核列表
+        document.getElementById('pendingList').innerHTML = '';
+        // 重置密码变量
+        ADMIN_PASSWORD = '';
+        // 关闭弹窗
+        document.getElementById('adminModal').style.display = 'none';
     }
 
     // 加载动态资源
@@ -485,6 +497,12 @@ header-mask: 0.3
                 document.getElementById('resourceName').value = '';
                 document.getElementById('resourceUrl').value = '';
                 document.getElementById('resourceDesc').value = '';
+                
+                // 如果审核面板是打开状态，自动刷新待审核列表
+                const adminModal = document.getElementById('adminModal');
+                if (adminModal.style.display === 'flex' && ADMIN_PASSWORD) {
+                    loadPendingResources();
+                }
             } else {
                 alert('提交失败：' + result.error);
             }
@@ -512,10 +530,13 @@ header-mask: 0.3
             const result = await response.json();
 
             if (result.success) {
+                // 密码验证成功提示
+                const successMsg = '<div style="background: #d4edda; color: #155724; padding: 10px 15px; border-radius: 4px; margin-bottom: 15px; text-align: left; border: 1px solid #c3e6cb;">✓ 密码验证成功！</div>';
+                
                 if (result.data.length === 0) {
-                    container.innerHTML = '<p>没有待审核的资源</p>';
+                    container.innerHTML = successMsg + '<p style="text-align: left;">没有待审核的资源</p>';
                 } else {
-                    container.innerHTML = result.data.map(item => `
+                    container.innerHTML = successMsg + result.data.map(item => `
                         <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; text-align: left;">
                             <h4 style="margin: 0 0 5px 0;">${item.name}</h4>
                             <p style="margin: 5px 0; color: #666;">
