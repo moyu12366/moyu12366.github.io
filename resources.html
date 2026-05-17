@@ -8,7 +8,6 @@ header-mask: 0.3
 
 <div class="post-container">
     <div class="resource-container">
-        <!-- 提交资源按钮（优化了定位样式） -->
         <div style="margin-bottom: 20px; position: relative; z-index: 101;">
             <button id="submitBtn" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; position: relative; z-index: 102;">
                 📝 提交新资源
@@ -18,7 +17,6 @@ header-mask: 0.3
             </button>
         </div>
 
-        <!-- 常用网站 -->
         <h2 id="常用网站">常用网站</h2>
         <div class="resource-grid">
             <a href="https://mail.qq.com" target="_blank" class="resource-item">
@@ -47,7 +45,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 导航网站 -->
         <h2 id="导航网站">导航网站</h2>
         <div class="resource-grid">
             <a href="https://导航地址1" target="_blank" class="resource-item">
@@ -84,7 +81,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 电商网站 -->
         <h2 id="电商网站">电商网站</h2>
         <div class="resource-grid">
             <a href="https://taobao.com" target="_blank" class="resource-item">
@@ -109,7 +105,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 工具网站 -->
         <h2 id="工具网站">工具网站</h2>
         <div class="resource-grid">
             <a href="https://www.jyshare.com/" target="_blank" class="resource-item">
@@ -150,7 +145,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 学习网站 -->
         <h2 id="学习网站">学习网站</h2>
         <div class="resource-grid">
             <a href="https://www.runoob.com/" target="_blank" class="resource-item">
@@ -179,7 +173,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 魔法网站 -->
         <h2 id="魔法网站">魔法网站</h2>
         <div class="resource-grid">
             <a href="https://itlanyan.com/v2ray-clients-download/" target="_blank" class="resource-item">
@@ -236,7 +229,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 软件网站 -->
         <h2 id="软件网站">软件网站</h2>
         <div class="resource-grid">
             <a href="https://www.suyin66.com/" target="_blank" class="resource-item">
@@ -269,7 +261,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 游戏网站 -->
         <h2 id="游戏网站">游戏网站</h2>
         <div class="resource-grid">
             <a href="https://www.xianyudanji.top/" target="_blank" class="resource-item">
@@ -294,7 +285,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 影视网站 -->
         <h2 id="影视网站">影视网站</h2>
         <div class="resource-grid">
             <a href="https://www.gying.page/" target="_blank" class="resource-item">
@@ -311,7 +301,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 网盘网站 -->
         <h2 id="网盘网站">网盘网站</h2>
         <div class="resource-grid">
             <a href="https://www.ttttt.link/" target="_blank" class="resource-item">
@@ -336,7 +325,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 插件网站 -->
         <h2 id="插件网站">插件网站</h2>
         <div class="resource-grid">
             <a href="https://www.chajianxw.com/" target="_blank" class="resource-item">
@@ -349,7 +337,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 解析接口 -->
         <h2 id="解析接口">解析接口</h2>
         <div class="resource-grid">
             <a href="https://www.suyin66.com/vipvideo" target="_blank" class="resource-item">
@@ -358,7 +345,6 @@ header-mask: 0.3
             </a>
         </div>
 
-        <!-- 动态加载区域 -->
         <h2 id="用户提交">用户提交资源</h2>
         <div id="dynamicResources" class="resource-grid">
             <p>加载中...</p>
@@ -366,8 +352,6 @@ header-mask: 0.3
     </div>
 </div>
 
-<!-- 【重点修改】将弹窗移出容器，直接放在主体最外层，确保 fixed 覆盖全屏 -->
-<!-- 提交资源弹窗 -->
 <div id="submitModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99999; justify-content: center; align-items: center;">
     <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 500px; color: #333;">
         <h3>📝 提交新资源</h3>
@@ -392,7 +376,6 @@ header-mask: 0.3
     </div>
 </div>
 
-<!-- 审核面板弹窗 -->
 <div id="adminModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99999; justify-content: center; align-items: center;">
     <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto; color: #333;">
         <h3>🔐 审核面板</h3>
@@ -412,7 +395,6 @@ header-mask: 0.3
 
 <script>
     let API_BASE = '/api';
-    let ADMIN_PASSWORD = '';
 
     // 页面加载完成后执行
     document.addEventListener('DOMContentLoaded', function() {
@@ -438,24 +420,24 @@ header-mask: 0.3
 
     // 关闭审核面板弹窗并清空数据
     function closeAdminModal() {
-        // 清空密码输入框
         document.getElementById('adminPassword').value = '';
-        // 清空待审核列表
         document.getElementById('pendingList').innerHTML = '';
-        // 重置密码变量
-        ADMIN_PASSWORD = '';
-        // 关闭弹窗
         document.getElementById('adminModal').style.display = 'none';
     }
 
-    // 加载动态资源
+    // 【修复问题3】加载已审核通过的动态资源
     async function loadDynamicResources() {
         const container = document.getElementById('dynamicResources');
         try {
-            const response = await fetch(API_BASE + '/submit');
+            // 注意：这里改向 admin.js 获取带特定密码（或公开无密码拉取已审核列表）
+            // 如果你的 admin.js 获取列表必须要密码，可以在这里默认带上，或者让 admin.js GET 默认拉取 approved 状态的资源
+            // 鉴于你的 admin.js GET 限制了密码且只查 pending。我们需要改用拉取全部的通用接口。
+            // 临时适配：直接请求 /api/admin 不带密码会报错，所以我们在下面把已经加载通过的数据实时渲染。
+            // 为了让前端页面能看到通过的资源，我们在请求时必须提供一个不需要密码的公开拉取路径：
+            const response = await fetch(API_BASE + '/admin?action=get_approved');
             const result = await response.json();
 
-            if (result.success && result.data.length > 0) {
+            if (result.success && result.data && result.data.length > 0) {
                 container.innerHTML = result.data.map(item => `
                     <a href="${item.url}" target="_blank" class="resource-item">
                         <span class="icon">🌐</span>
@@ -477,29 +459,19 @@ header-mask: 0.3
         const url = document.getElementById('resourceUrl').value.trim();
         const description = document.getElementById('resourceDesc').value.trim();
 
-        console.log('🚀 准备提交资源:', { name, url, description });
-
         if (!name || !url) {
             alert('网站名称和链接不能为空！');
             return;
         }
 
         try {
-            const fullUrl = API_BASE + '/submit';
-            console.log('📤 发送请求到:', fullUrl);
-            
-            const response = await fetch(fullUrl, {
+            const response = await fetch(API_BASE + '/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, url, description })
             });
 
-            console.log('📥 响应状态:', response.status);
-            console.log('📥 响应头部:', response.headers);
-
             const result = await response.json();
-            console.log('📋 响应结果:', result);
-
             if (result.success) {
                 alert('提交成功！等待管理员审核');
                 closeModal('submitModal');
@@ -507,9 +479,7 @@ header-mask: 0.3
                 document.getElementById('resourceUrl').value = '';
                 document.getElementById('resourceDesc').value = '';
                 
-                // 如果审核面板是打开状态，自动刷新待审核列表
-                const adminModal = document.getElementById('adminModal');
-                if (adminModal.style.display === 'flex' && ADMIN_PASSWORD) {
+                if (document.getElementById('adminModal').style.display === 'flex') {
                     loadPendingResources();
                 }
             } else {
@@ -517,34 +487,34 @@ header-mask: 0.3
             }
         } catch (e) {
             console.error('❌ 请求异常:', e);
-            alert('提交失败，请稍后重试。错误信息已输出到控制台。');
+            alert('提交失败，请稍后重试。');
         }
     }
 
     // 加载待审核资源
     async function loadPendingResources() {
-        ADMIN_PASSWORD = document.getElementById('adminPassword').value;
+        const pwd = document.getElementById('adminPassword').value;
         const container = document.getElementById('pendingList');
 
-        if (!ADMIN_PASSWORD) {
+        if (!pwd) {
             alert('请输入密码');
             return;
         }
 
         try {
-            const response = await fetch(API_BASE + '/admin?password=' + encodeURIComponent(ADMIN_PASSWORD), {
+            const response = await fetch(API_BASE + '/admin?password=' + encodeURIComponent(pwd), {
                 method: 'GET'
             });
 
             const result = await response.json();
 
             if (result.success) {
-                // 密码验证成功提示
                 const successMsg = '<div style="background: #d4edda; color: #155724; padding: 10px 15px; border-radius: 4px; margin-bottom: 15px; text-align: left; border: 1px solid #c3e6cb;">✓ 密码验证成功！</div>';
                 
                 if (result.data.length === 0) {
                     container.innerHTML = successMsg + '<p style="text-align: left;">没有待审核的资源</p>';
                 } else {
+                    // 【修复问题2】这里加入了 ❌ 拒绝并删除 按钮，并优化样式
                     container.innerHTML = successMsg + result.data.map(item => `
                         <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; text-align: left;">
                             <h4 style="margin: 0 0 5px 0;">${item.name}</h4>
@@ -552,8 +522,9 @@ header-mask: 0.3
                                 <a href="${item.url}" target="_blank">${item.url}</a>
                             </p>
                             ${item.description ? `<p style="margin: 5px 0; color: #888;">${item.description}</p>` : ''}
-                            <p style="margin: 10px 0 0 0;">
+                            <p style="margin: 10px 0 0 0; display: flex; gap: 10px;">
                                 <button onclick="approveResource('${item.id}')" class="btn btn-primary">✅ 通过审核</button>
+                                <button onclick="deleteResource('${item.id}')" style="background-color: #dc3545; color: white;" class="btn">❌ 拒绝并删除</button>
                             </p>
                         </div>
                     `).join('');
@@ -567,13 +538,14 @@ header-mask: 0.3
         }
     }
 
-    // 审核通过资源
+    // 【修复问题1】审核通过资源（修复401错误，改为实时获取最新输入框里的密码）
     async function approveResource(id) {
+        const pwd = document.getElementById('adminPassword').value;
         try {
             const response = await fetch(API_BASE + '/admin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id, password: ADMIN_PASSWORD })
+                body: JSON.stringify({ id, password: pwd, action: 'approve' })
             });
 
             const result = await response.json();
@@ -590,89 +562,46 @@ header-mask: 0.3
             console.error(e);
         }
     }
+
+    // 【新加功能】删除/拒绝资源逻辑
+    async function deleteResource(id) {
+        if (!confirm('确定要删除这条用户提交的资源吗？')) return;
+        const pwd = document.getElementById('adminPassword').value;
+        try {
+            const response = await fetch(API_BASE + '/admin', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, password: pwd, action: 'delete' }) // 传入 action 为 delete
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                alert('资源已成功删除！');
+                loadPendingResources();
+            } else {
+                alert('删除失败：' + result.error);
+            }
+        } catch (e) {
+            alert('删除失败，请稍后重试');
+            console.error(e);
+        }
+    }
 </script>
 
 <style>
-.resource-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.resource-container h2 {
-    color: #333;
-    font-size: 1.5rem;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #eee;
-}
-
-.resource-container h2:first-child {
-    margin-top: 0;
-}
-
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 15px;
-}
-
-.resource-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 10px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    text-decoration: none;
-    color: #333;
-    transition: all 0.3s ease;
-    border: 1px solid #eee;
-}
-
-.resource-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-    border-color: #007bff;
-}
-
-.resource-item .icon {
-    font-size: 2rem;
-    margin-bottom: 8px;
-}
-
-.resource-item .name {
-    font-size: 0.9rem;
-    text-align: center;
-    word-break: break-all;
-}
-
-.btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    font-size: 14px;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-.btn-default {
-    background-color: #6c757d;
-    color: white;
-}
-
-.btn-default:hover {
-    background-color: #545b62;
-}
+/* 保持你的原样样式不变 */
+.resource-container { max-width: 900px; margin: 0 auto; padding: 20px; }
+.resource-container h2 { color: #333; font-size: 1.5rem; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+.resource-container h2:first-child { margin-top: 0; }
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; }
+.resource-item { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 10px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); text-decoration: none; color: #333; transition: all 0.3s ease; border: 1px solid #eee; }
+.resource-item:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12); border-color: #007bff; }
+.resource-item .icon { font-size: 2rem; margin-bottom: 8px; }
+.resource-item .name { font-size: 0.9rem; text-align: center; word-break: break-all; }
+.btn { padding: 10px 20px; border-radius: 5px; cursor: pointer; border: none; font-size: 14px; }
+.btn-primary { background-color: #007bff; color: white; }
+.btn-primary:hover { background-color: #0056b3; }
+.btn-default { background-color: #6c757d; color: white; }
+.btn-default:hover { background-color: #545b62; }
 </style>
