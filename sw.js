@@ -136,6 +136,12 @@ self.addEventListener('fetch', event => {
       return;
     }
 
+    // 跳过对 Netlify Functions API 的拦截
+    if (event.request.url.indexOf('reliable-daifuku-c6a219.netlify.app') > -1) {
+      event.respondWith(fetch(event.request));
+      return;
+    }
+
     const cached = caches.match(event.request);
     const fetched = fetch(getCacheBustingUrl(event.request), { cache: "no-store" });
     const fetchedCopy = fetched.then(resp => resp.clone());
