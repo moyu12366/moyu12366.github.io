@@ -1,13 +1,20 @@
+# 环境变量
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Jekyll
 _site
-_posts/_draft
-_posts/_archive
-_archive
-node_modules
-.vscode
-*.log
-*.lock
-*.sh
-.DS_Store
+.sass-cache
 .jekyll-cache
-*/.DS_Store
-*/*/.DS_Store
+.jekyll-metadata
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node
+node_modules

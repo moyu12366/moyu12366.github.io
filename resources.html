@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "资源导航"
 description: "收集整理的优质资源网站"
 header-img: "img/post-bg-universe.jpg"
@@ -8,7 +8,16 @@ header-mask: 0.3
 
 <div class="post-container">
     <div class="resource-container">
-        
+        <!-- 提交资源按钮 -->
+        <div style="margin-bottom: 30px;">
+            <button id="submitBtn" class="btn btn-primary" onclick="showSubmitModal()">
+                📝 提交新资源
+            </button>
+            <button id="adminBtn" class="btn btn-default" onclick="showAdminModal()" style="margin-left: 10px;">
+                🔐 审核面板
+            </button>
+        </div>
+
         <!-- 常用网站 -->
         <h2 id="常用网站">常用网站</h2>
         <div class="resource-grid">
@@ -20,6 +29,10 @@ header-mask: 0.3
                 <span class="icon">📺</span>
                 <span class="name">B站</span>
             </a>
+            <a href="https://iconfont.cn" target="_blank" class="resource-item">
+                <span class="icon">🎨</span>
+                <span class="name">图标库</span>
+            </a>
             <a href="https://mail.google.com" target="_blank" class="resource-item">
                 <span class="icon">📭</span>
                 <span class="name">谷歌邮箱</span>
@@ -28,371 +41,251 @@ header-mask: 0.3
                 <span class="icon">📧</span>
                 <span class="name">163邮箱</span>
             </a>
-            <a href="https://iconfont.cn" target="_blank" class="resource-item">
-                <span class="icon">🎨</span>
-                <span class="name">图标库</span>
-            </a>
-            <a href="https://www.bt.cn/" target="_blank" class="resource-item">
+            <a href="https://宝塔面板地址" target="_blank" class="resource-item">
                 <span class="icon">🗼</span>
                 <span class="name">宝塔面板</span>
             </a>
-            <a href="https://yandex.com/" target="_blank" class="resource-item">
-                <span class="icon">🗼</span>
-                <span class="name">Yandex</span>
-            </a>
-            <a href="https://5sim.net/" target="_blank" class="resource-item">
-                <span class="icon">🗼</span>
-                <span class="name">5sim接码平台</span>
-            </a>
-            <a href="https://www.baidu.com/" target="_blank" class="resource-item">
-                <span class="icon">🔍</span>
-                <span class="name">百度</span>
-            </a>
-           
         </div>
 
         <!-- 导航网站 -->
         <h2 id="导航网站">导航网站</h2>
         <div class="resource-grid">
-    
-            <a href="https://codernav.com/" target="_blank" class="resource-item">
+            <a href="https://导航地址1" target="_blank" class="resource-item">
+                <span class="icon">🧭</span>
+                <span class="name">慌伴导航</span>
+            </a>
+            <a href="https://导航地址2" target="_blank" class="resource-item">
                 <span class="icon">🚀</span>
                 <span class="name">开发者导航</span>
             </a>
-            <a href="https://www.xue8nav.com/" target="_blank" class="resource-item">
+            <a href="https://导航地址3" target="_blank" class="resource-item">
                 <span class="icon">📚</span>
                 <span class="name">学吧导航</span>
             </a>
-            <a href="https://huamaodh.com/" target="_blank" class="resource-item">
+            <a href="https://导航地址4" target="_blank" class="resource-item">
                 <span class="icon">🐱</span>
                 <span class="name">花猫导航</span>
             </a>
-            <a href="https://www.ruisou121.com/" target="_blank" class="resource-item">
+            <a href="https://导航地址5" target="_blank" class="resource-item">
                 <span class="icon">💎</span>
                 <span class="name">资源导航</span>
             </a>
-            <a href="https://pidoutv.com/" target="_blank" class="resource-item">
+            <a href="https://导航地址6" target="_blank" class="resource-item">
                 <span class="icon">🌐</span>
                 <span class="name">新媒派</span>
             </a>
-            <a href="https://gitee.com/daybreak166/ViaBrowserCollection/blob/master/cn/messy-cont.md" target="_blank" class="resource-item">
+            <a href="https://导航地址7" target="_blank" class="resource-item">
                 <span class="icon">🌙</span>
                 <span class="name">半梦半醒</span>
             </a>
-            <a href="https://search.chongbuluo.com/" target="_blank" class="resource-item">
+            <a href="https://导航地址8" target="_blank" class="resource-item">
                 <span class="icon">🐛</span>
                 <span class="name">虫部落</span>
             </a>
-            <a href="https://xmsoushu.com/#/" target="_blank" class="resource-item">
-                <span class="icon">🐼</span>
-                <span class="name">熊猫导航</span>
-            </a>
-            <a href="https://heeee.com/" target="_blank" class="resource-item">
-                <span class="icon">👤</span>
-                <span class="name">资源网</span>
-            </a>
-            <a href="https://eeenav.com/" target="_blank" class="resource-item">
-                <span class="icon">🔍</span>
-                <span class="name">E导航</span>
-            </a>
-            <a href="https://yinghezhinan.com/" target="_blank" class="resource-item">
-                <span class="icon">📌</span>
-                <span class="name">硬核指南</span>
-            </a>
-            <a href="https://kjgx.168668520.xyz/" target="_blank" class="resource-item">
-                <span class="icon">💻</span>
-                <span class="name">科技共享导航站</span>
-            </a>
-            <a href="https://biiii.com/" target="_blank" class="resource-item">
-                <span class="icon">☀️</span>
-                <span class="name">资源库</span>
-            </a>
-            <a href="https://www.xiaozhongjishu.com/?from=itab" target="_blank" class="resource-item">
-                <span class="icon">💻</span>
-                <span class="name">小众技术库</span>
-            </a>
-            <a href="https://link3.cc/yccao" target="_blank" class="resource-item">
-                <span class="icon">🔗</span>
-                <span class="name">分享总站</span>
-            </a>
         </div>
 
-        <!-- 电商网站 -->
-        <h2 id="电商网站">电商网站</h2>
-        <div class="resource-grid">
-            <a href="https://taobao.com" target="_blank" class="resource-item">
-                <span class="icon">🛒</span>
-                <span class="name">淘宝</span>
-            </a>
-            <a href="https://jd.com" target="_blank" class="resource-item">
-                <span class="icon">📦</span>
-                <span class="name">京东</span>
-            </a>
-            <a href="https://pinduoduo.com" target="_blank" class="resource-item">
-                <span class="icon">💸</span>
-                <span class="name">拼多多</span>
-            </a>
-            <a href="https://global.lianlianpay.com/" target="_blank" class="resource-item">
-                <span class="icon">💳</span>
-                <span class="name">lianlianpay</span>
-            </a>
-            <a href="https://www.91miaoshou.com/" target="_blank" class="resource-item">
-                <span class="icon">💰</span>
-                <span class="name">91miaoshou</span>
-            </a>
+        <!-- 动态加载区域 -->
+        <h2 id="用户提交">用户提交资源</h2>
+        <div id="dynamicResources" class="resource-grid">
+            <p>加载中...</p>
         </div>
-
-        <!-- 工具网站 -->
-        <h2 id="工具网站">工具网站</h2>
-        <div class="resource-grid">
-            <a href="https://www.jyshare.com/" target="_blank" class="resource-item">
-                <span class="icon">🔧</span>
-                <span class="name">菜鸟工具</span>
-            </a>
-            <a href="https://tools.miku.ac/" target="_blank" class="resource-item">
-                <span class="icon">🎤</span>
-                <span class="name">MikuTools</span>
-            </a>
-            <a href="https://kms.cx/" target="_blank" class="resource-item">
-                <span class="icon">�</span>
-                <span class="name">KMS激活</span>
-            </a>
-            <a href="https://www.tool77.com/zh-CN/" target="_blank" class="resource-item">
-                <span class="icon">🛠️</span>
-                <span class="name">七七工具箱</span>
-            </a>
-            <a href="https://hddtool.com/" target="_blank" class="resource-item">
-                <span class="icon">🧰</span>
-                <span class="name">在线工具导航</span>
-            </a>
-            <a href="https://www.online-downloader.com/index-Chinese" target="_blank" class="resource-item">
-                <span class="icon">📥</span>
-                <span class="name">YouTube下载器</span>
-            </a>
-            <a href="https://www.autohanding.com/" target="_blank" class="resource-item">
-                <span class="icon">�</span>
-                <span class="name">凹凸工坊</span>
-            </a>
-            <a href="https://im1907.top/?jx=" target="_blank" class="resource-item">
-                <span class="icon">⚡</span>
-                <span class="name">云加速播放器</span>
-            </a>
-            <a href="https://www.bookmarkearth.cn/" target="_blank" class="resource-item">
-                <span class="icon">🌍</span>
-                <span class="name">书签地球</span>
-            </a>
-        </div>
-
-        <!-- 学习网站 -->
-        <h2 id="学习网站">学习网站</h2>
-        <div class="resource-grid">
-            <a href="https://www.runoob.com/" target="_blank" class="resource-item">
-                <span class="icon">📚</span>
-                <span class="name">菜鸟教程</span>
-            </a>
-            <a href="https://doyoudo.com/" target="_blank" class="resource-item">
-                <span class="icon">🎬</span>
-                <span class="name">doyoudo</span>
-            </a>
-            <a href="https://www.bootstrap.cn/" target="_blank" class="resource-item">
-                <span class="icon">📱</span>
-                <span class="name">Bootstrap中文网</span>
-            </a>
-            <a href="https://element.eleme.cn/#/zh-CN" target="_blank" class="resource-item">
-                <span class="icon">�</span>
-                <span class="name">Element</span>
-            </a>
-            <a href="https://www.keqishe.com/" target="_blank" class="resource-item">
-                <span class="icon">✍️</span>
-                <span class="name">可期随笔</span>
-            </a>
-            <a href="https://home.unicode.org/emoji/" target="_blank" class="resource-item">
-                <span class="icon">😊</span>
-                <span class="name">Emoji</span>
-            </a>
-        </div>
-
-        <!-- 魔法网站 -->
-        <h2 id="魔法网站">魔法网站</h2>
-        <div class="resource-grid">
-            <a href="https://itlanyan.com/v2ray-clients-download/" target="_blank" class="resource-item">
-                <span class="icon">🔮</span>
-                <span class="name">V2Ray客户端</span>
-            </a>
-            <a href="https://fanqiangnan.com/appleid.html" target="_blank" class="resource-item">
-                <span class="icon">🍎</span>
-                <span class="name">免费苹果ID</span>
-            </a>
-            <a href="https://edt-aio-nav.pages.dev/" target="_blank" class="resource-item">
-                <span class="icon">🧭</span>
-                <span class="name">EDT导航</span>
-            </a>
-            <a href="https://ping0.cc/" target="_blank" class="resource-item">
-                <span class="icon">📡</span>
-                <span class="name">节点纯度测试</span>
-            </a>
-            <a href="https://xn--ehqx35aimmzwv.com/" target="_blank" class="resource-item">
-                <span class="icon">✈️</span>
-                <span class="name">三毛机场导航</span>
-            </a>
-            <a href="https://hongxingyun.help" target="_blank" class="resource-item">
-                <span class="icon">☁️</span>
-                <span class="name">红杏云</span>
-            </a>
-            <a href="https://mailsoftware.org/" target="_blank" class="resource-item">
-                <span class="icon">📧</span>
-                <span class="name">v2ray技术站</span>
-            </a>
-            <a href="https://www.freedidi.com/17962.html" target="_blank" class="resource-item">
-                <span class="icon">🔧</span>
-                <span class="name">vpn搭建零度</span>
-            </a>
-            <a href="https://bulianglin.com/archives/nicename.html" target="_blank" class="resource-item">
-                <span class="icon">🌲</span>
-                <span class="name">vpn不良林</span>
-            </a>
-            <a href="https://xn--9kqz23b19z.com/" target="_blank" class="resource-item">
-                <span class="icon">❤️</span>
-                <span class="name">良心云</span>
-            </a>
-            <a href="https://www.freedidi.com/10143.html" target="_blank" class="resource-item">
-                <span class="icon">🌐</span>
-                <span class="name">优选ip</span>
-            </a>
-            <a href="https://www.fakepersongenerator.com/?new=fresh" target="_blank" class="resource-item">
-                <span class="icon">🎭</span>
-                <span class="name">虚拟身份生成器</span>
-            </a>
-            <a href="https://www.speedtest.net/" target="_blank" class="resource-item">
-                <span class="icon">⚡</span>
-                <span class="name">全球测速网</span>
-            </a>
-        </div>
-
-        <!-- 软件网站 -->
-        <h2 id="软件网站">软件网站</h2>
-        <div class="resource-grid">
-            <a href="https://www.suyin66.com/" target="_blank" class="resource-item">
-                <span class="icon">🎵</span>
-                <span class="name">苏音资源</span>
-            </a>
-            <a href="https://zhs.moo0.com/" target="_blank" class="resource-item">
-                <span class="icon">🐄</span>
-                <span class="name">Moo0</span>
-            </a>
-            <a href="https://superso.top/Adobe/" target="_blank" class="resource-item">
-                <span class="icon">🎨</span>
-                <span class="name">Adobe全家桶</span>
-            </a>
-            <a href="https://soft.3dmgame.com/" target="_blank" class="resource-item">
-                <span class="icon">🎮</span>
-                <span class="name">3DM</span>
-            </a>
-            <a href="https://www.souyuanzhan.com/" target="_blank" class="resource-item">
-                <span class="icon">�</span>
-                <span class="name">搜源站</span>
-            </a>
-            <a href="https://cilitiantang.icu/" target="_blank" class="resource-item">
-                <span class="icon">🧲</span>
-                <span class="name">磁力天堂</span>
-            </a>
-            <a href="https://googlechromelabs.github.io/chrome-for-testing/" target="_blank" class="resource-item">
-                <span class="icon">🌐</span>
-                <span class="name">测试版谷歌</span>
-            </a>
-        </div>
-
-        <!-- 游戏网站 -->
-        <h2 id="游戏网站">游戏网站</h2>
-        <div class="resource-grid">
-            <a href="https://www.xianyudanji.top/" target="_blank" class="resource-item">
-                <span class="icon">🐟</span>
-                <span class="name">咸鱼单机</span>
-            </a>
-            <a href="https://www.steamm.cc/" target="_blank" class="resource-item">
-                <span class="icon">♨️</span>
-                <span class="name">蒸汽盟</span>
-            </a>
-            <a href="https://playzip.com/" target="_blank" class="resource-item">
-                <span class="icon">📦</span>
-                <span class="name">Playzip</span>
-            </a>
-            <a href="https://www.dogfight360.com/blog/" target="_blank" class="resource-item">
-                <span class="icon">🚀</span>
-                <span class="name">steam加速器</span>
-            </a>
-            <a href="https://www.4399.com/" target="_blank" class="resource-item">
-                <span class="icon">�</span>
-                <span class="name">4399小游戏</span>
-            </a>
-        </div>
-
-        <!-- 影视网站 -->
-        <h2 id="影视网站">影视网站</h2>
-        <div class="resource-grid">
-            <a href="https://www.gying.page/" target="_blank" class="resource-item">
-                <span class="icon">🎬</span>
-                <span class="name">观影</span>
-            </a>
-            <a href="https://ayouth.top/ayouth/video.html" target="_blank" class="resource-item">
-                <span class="icon">🎥</span>
-                <span class="name">影视站点</span>
-            </a>
-            <a href="https://seedhub.pro/" target="_blank" class="resource-item">
-                <span class="icon">🌱</span>
-                <span class="name">SeedHub</span>
-            </a>
-        </div>
-
-        <!-- 网盘网站 -->
-        <h2 id="网盘网站">网盘网站</h2>
-        <div class="resource-grid">
-            <a href="https://www.ttttt.link/" target="_blank" class="resource-item">
-                <span class="icon">💿</span>
-                <span class="name">钛盘</span>
-            </a>
-            <a href="https://www.pandashi8.com/?from=xiaozhongjishu" target="_blank" class="resource-item">
-                <span class="icon">📀</span>
-                <span class="name">盘大师</span>
-            </a>
-            <a href="https://miaosou.fun/" target="_blank" class="resource-item">
-                <span class="icon">🔍</span>
-                <span class="name">秒搜</span>
-            </a>
-            <a href="https://www.esoua.com/" target="_blank" class="resource-item">
-                <span class="icon">🔎</span>
-                <span class="name">爱搜</span>
-            </a>
-            <a href="https://www.liesou.cc/" target="_blank" class="resource-item">
-                <span class="icon">�</span>
-                <span class="name">猎搜</span>
-            </a>
-        </div>
-
-        <!-- 插件网站 -->
-        <h2 id="插件网站">插件网站</h2>
-        <div class="resource-grid">
-            <a href="https://www.chajianxw.com/" target="_blank" class="resource-item">
-                <span class="icon">🔌</span>
-                <span class="name">插件小屋</span>
-            </a>
-            <a href="https://chrome.zzzmh.cn/#/index" target="_blank" class="resource-item">
-                <span class="icon">✨</span>
-                <span class="name">极简插件</span>
-            </a>
-        </div>
-
-        <!-- 解析接口 -->
-        <h2 id="解析接口">解析接口</h2>
-        <div class="resource-grid">
-            <a href="https://www.suyin66.com/vipvideo" target="_blank" class="resource-item">
-                <span class="icon">🔓</span>
-                <span class="name">苏音解析</span>
-            </a>
-        </div>
-
     </div>
 </div>
+
+<!-- 提交资源弹窗 -->
+<div id="submitModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 500px;">
+        <h3>📝 提交新资源</h3>
+        <div style="margin-top: 20px;">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px;">网站名称 *</label>
+                <input type="text" id="resourceName" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="例如：GitHub">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px;">网站链接 *</label>
+                <input type="url" id="resourceUrl" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="https://github.com">
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px;">简介（可选）</label>
+                <textarea id="resourceDesc" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; min-height: 60px;" placeholder="简单描述一下这个网站..."></textarea>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="submitResource()" class="btn btn-primary">提交</button>
+                <button onclick="closeModal('submitModal')" class="btn btn-default">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 审核面板弹窗 -->
+<div id="adminModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+        <h3>🔐 审核面板</h3>
+        <div id="adminContent" style="margin-top: 20px;">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px;">管理员密码</label>
+                <input type="password" id="adminPassword" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="输入密码">
+            </div>
+            <button onclick="loadPendingResources()" class="btn btn-primary">查看待审核</button>
+            <div id="pendingList" style="margin-top: 20px;"></div>
+            <div style="margin-top: 20px;">
+                <button onclick="closeModal('adminModal')" class="btn btn-default">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let ADMIN_PASSWORD = '';
+
+    // 页面加载时获取动态资源
+    document.addEventListener('DOMContentLoaded', function() {
+        loadDynamicResources();
+    });
+
+    let API_BASE = 'https://你的Vercel项目名.vercel.app'; // 部署 Vercel 后改成你的实际地址
+
+    // 加载动态资源
+    async function loadDynamicResources() {
+        const container = document.getElementById('dynamicResources');
+        try {
+            const response = await fetch(API_BASE + '/api/resources');
+            const result = await response.json();
+
+            if (result.success && result.data.length > 0) {
+                container.innerHTML = result.data.map(item => `
+                    <a href="${item.url}" target="_blank" class="resource-item">
+                        <span class="icon">🌐</span>
+                        <span class="name">${item.name}</span>
+                    </a>
+                `).join('');
+            } else {
+                container.innerHTML = '<p>暂无用户提交的资源</p>';
+            }
+        } catch (e) {
+            console.error(e);
+            container.innerHTML = '<p>加载失败</p>';
+        }
+    }
+
+    // 显示提交弹窗
+    function showSubmitModal() {
+        document.getElementById('submitModal').style.display = 'flex';
+    }
+
+    // 显示审核弹窗
+    function showAdminModal() {
+        document.getElementById('adminModal').style.display = 'flex';
+    }
+
+    // 关闭弹窗
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+
+    // 提交资源
+    async function submitResource() {
+        const name = document.getElementById('resourceName').value.trim();
+        const url = document.getElementById('resourceUrl').value.trim();
+        const description = document.getElementById('resourceDesc').value.trim();
+
+        if (!name || !url) {
+            alert('网站名称和链接不能为空！');
+            return;
+        }
+
+        try {
+            const response = await fetch(API_BASE + '/api/resources', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, url, description })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                alert('提交成功！等待管理员审核');
+                closeModal('submitModal');
+                document.getElementById('resourceName').value = '';
+                document.getElementById('resourceUrl').value = '';
+                document.getElementById('resourceDesc').value = '';
+            } else {
+                alert('提交失败：' + result.error);
+            }
+        } catch (e) {
+            alert('提交失败，请稍后重试');
+            console.error(e);
+        }
+    }
+
+    // 加载待审核资源
+    async function loadPendingResources() {
+        ADMIN_PASSWORD = document.getElementById('adminPassword').value;
+        const container = document.getElementById('pendingList');
+
+        if (!ADMIN_PASSWORD) {
+            alert('请输入密码');
+            return;
+        }
+
+        try {
+            const response = await fetch(API_BASE + '/api/approve', {
+                method: 'GET',
+                headers: { 'x-admin-password': ADMIN_PASSWORD }
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                if (result.data.length === 0) {
+                    container.innerHTML = '<p>没有待审核的资源</p>';
+                } else {
+                    container.innerHTML = result.data.map(item => `
+                        <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px;">
+                            <h4 style="margin: 0 0 5px 0;">${item.name}</h4>
+                            <p style="margin: 5px 0; color: #666;">
+                                <a href="${item.url}" target="_blank">${item.url}</a>
+                            </p>
+                            ${item.description ? `<p style="margin: 5px 0; color: #888;">${item.description}</p>` : ''}
+                            <p style="margin: 10px 0 0 0;">
+                                <button onclick="approveResource('${item.id}')" class="btn btn-primary">✅ 通过审核</button>
+                            </p>
+                        </div>
+                    `).join('');
+                }
+            } else {
+                alert('加载失败：' + result.error);
+            }
+        } catch (e) {
+            alert('加载失败，请稍后重试');
+            console.error(e);
+        }
+    }
+
+    // 审核通过资源
+    async function approveResource(id) {
+        try {
+            const response = await fetch(API_BASE + '/api/approve', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, password: ADMIN_PASSWORD })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                alert('审核成功！');
+                loadPendingResources();
+                loadDynamicResources();
+            } else {
+                alert('审核失败：' + result.error);
+            }
+        } catch (e) {
+            alert('审核失败，请稍后重试');
+            console.error(e);
+        }
+    }
+</script>
 
 <style>
 .resource-container {
@@ -450,5 +343,31 @@ header-mask: 0.3
     font-size: 0.9rem;
     text-align: center;
     word-break: break-all;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-default {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: #545b62;
 }
 </style>
