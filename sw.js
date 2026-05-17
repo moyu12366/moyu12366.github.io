@@ -124,6 +124,13 @@ var fetchHelper = {
  * @Functional Fetch
  */
 self.addEventListener('fetch', event => {
+  // 🟢 核心修复：如果是 POST/PUT/DELETE 等非 GET 请求，或者是发送到后端接口的 API 请求，直接放行，绝对不拦截！
+  if (event.request.method !== 'GET' || event.request.url.includes('/api')) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
+
+  // --- 下面是你原本的 Hux Blog 缓存控制逻辑，一字没动 ---
   if (HOSTNAME_WHITELIST.indexOf(new URL(event.request.url).hostname) > -1) {
 
     if (shouldRedirect(event.request)) {
