@@ -10,10 +10,10 @@ header-mask: 0.3
     <div class="resource-container">
         <!-- 提交资源按钮 -->
         <div style="margin-bottom: 20px;">
-            <button id="submitBtn" onclick="showSubmitModal()" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">
+            <button id="submitBtn" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">
                 📝 提交新资源
             </button>
-            <button id="adminBtn" onclick="showAdminModal()" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: 10px;">
+            <button id="adminBtn" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: 10px;">
                 🔐 审核面板
             </button>
         </div>
@@ -412,13 +412,29 @@ header-mask: 0.3
 <script>
     let API_BASE = 'https://reliable-daifuku-c6a219.netlify.app';
 
-    // 页面加载时获取动态资源
+    // 显示提交弹窗
+    function showSubmitModal() {
+        document.getElementById('submitModal').style.display = 'flex';
+    }
+
+    // 显示审核弹窗
+    function showAdminModal() {
+        document.getElementById('adminModal').style.display = 'flex';
+    }
+
+    // 关闭弹窗
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+
+    // 页面加载完成后执行
     document.addEventListener('DOMContentLoaded', function() {
-        loadDynamicResources();
-        
         // 绑定按钮点击事件
         document.getElementById('submitBtn').addEventListener('click', showSubmitModal);
         document.getElementById('adminBtn').addEventListener('click', showAdminModal);
+        
+        // 加载动态资源
+        loadDynamicResources();
     });
 
     // 加载动态资源
@@ -442,21 +458,6 @@ header-mask: 0.3
             console.error(e);
             container.innerHTML = '<p>暂无用户提交的资源</p>';
         }
-    }
-
-    // 显示提交弹窗
-    function showSubmitModal() {
-        document.getElementById('submitModal').style.display = 'flex';
-    }
-
-    // 显示审核弹窗
-    function showAdminModal() {
-        document.getElementById('adminModal').style.display = 'flex';
-    }
-
-    // 关闭弹窗
-    function closeModal(id) {
-        document.getElementById(id).style.display = 'none';
     }
 
     // 提交资源
