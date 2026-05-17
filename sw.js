@@ -193,6 +193,12 @@ function sendMessageToClientsAsync(msg) {
 function revalidateContent(cachedResp, fetchedResp) {
   return Promise.all([cachedResp, fetchedResp])
     .then(([cached, fetched]) => {
+      // 添加空值检查，避免请求失败时出错
+      if (!cached || !fetched) {
+        console.log('缓存或请求失败，跳过验证');
+        return;
+      }
+      
       const cachedVer = cached.headers.get('last-modified')
       const fetchedVer = fetched.headers.get('last-modified')
       console.log(`"${cachedVer}" vs. "${fetchedVer}"`);
