@@ -10,11 +10,13 @@ header-mask: 0.3
     <div class="resource-container">
 
         <h2 id="添加网站">添加网站</h2>
-        <div class="resource-grid">
-            <button id="submitBtn" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; position: relative; z-index: 102;">
+
+        <!-- 把按钮单独放在普通div里，不要用resource-grid -->
+        <div style="margin-bottom: 20px;">
+            <button id="submitBtn" class="btn btn-primary">
                 📝 提交新资源
             </button>
-            <button id="adminBtn" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: 10px; position: relative; z-index: 102;">
+            <button id="adminBtn" class="btn btn-default" style="margin-left: 10px;">
                 🔐 审核面板
             </button>
         </div>
