@@ -10,10 +10,10 @@ header-mask: 0.3
     <div class="resource-container">
         <!-- 提交资源按钮 -->
         <div style="margin-bottom: 20px;">
-            <button id="submitBtn" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;" onclick="document.getElementById('submitModal').style.display='flex'">
+            <button id="submitBtn" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; z-index: 100;">
                 📝 提交新资源
             </button>
-            <button id="adminBtn" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: 10px;" onclick="document.getElementById('adminModal').style.display='flex'">
+            <button id="adminBtn" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: 10px; z-index: 100;">
                 🔐 审核面板
             </button>
         </div>
@@ -413,26 +413,25 @@ header-mask: 0.3
     let API_BASE = 'https://reliable-daifuku-c6a219.netlify.app/.netlify/functions';
     let ADMIN_PASSWORD = '';
 
-    // 显示提交弹窗
-    function showSubmitModal() {
-        document.getElementById('submitModal').style.display = 'flex';
-    }
-
-    // 显示审核弹窗
-    function showAdminModal() {
-        document.getElementById('adminModal').style.display = 'flex';
-    }
+    // 页面加载完成后执行
+    document.addEventListener('DOMContentLoaded', function() {
+        // 绑定按钮点击事件
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            document.getElementById('submitModal').style.display = 'flex';
+        });
+        
+        document.getElementById('adminBtn').addEventListener('click', function() {
+            document.getElementById('adminModal').style.display = 'flex';
+        });
+        
+        // 加载动态资源
+        loadDynamicResources();
+    });
 
     // 关闭弹窗
     function closeModal(id) {
         document.getElementById(id).style.display = 'none';
     }
-
-    // 页面加载完成后执行
-    document.addEventListener('DOMContentLoaded', function() {
-        // 加载动态资源
-        loadDynamicResources();
-    });
 
     // 加载动态资源
     async function loadDynamicResources() {
