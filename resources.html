@@ -10,10 +10,10 @@ header-mask: 0.3
     <div class="resource-container">
         <!-- 提交资源按钮 -->
         <div style="margin-bottom: 20px;">
-            <button id="submitBtn" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;">
+            <button id="submitBtn" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px;" onclick="document.getElementById('submitModal').style.display='flex'">
                 📝 提交新资源
             </button>
-            <button id="adminBtn" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: 10px;">
+            <button id="adminBtn" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: 10px;" onclick="document.getElementById('adminModal').style.display='flex'">
                 🔐 审核面板
             </button>
         </div>
@@ -411,6 +411,7 @@ header-mask: 0.3
 
 <script>
     let API_BASE = 'https://reliable-daifuku-c6a219.netlify.app';
+    let ADMIN_PASSWORD = '';
 
     // 显示提交弹窗
     function showSubmitModal() {
@@ -429,10 +430,6 @@ header-mask: 0.3
 
     // 页面加载完成后执行
     document.addEventListener('DOMContentLoaded', function() {
-        // 绑定按钮点击事件
-        document.getElementById('submitBtn').addEventListener('click', showSubmitModal);
-        document.getElementById('adminBtn').addEventListener('click', showAdminModal);
-        
         // 加载动态资源
         loadDynamicResources();
     });
