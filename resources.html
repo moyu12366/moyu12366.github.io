@@ -635,21 +635,23 @@ header-mask: 0.3
 </script>
 
 <style>
-    .container { background: transparent !important; }
-    #page-header { z-index: 9999 !important; position: relative !important; }
-    /* header { position: relative; z-index: 999; }给 header 加更高的层级 */
-    /* 保持你的原样样式不变 */
-    .resource-container { max-width: 900px; margin: 0 auto; padding: 20px;padding-top:90px; }
-    .resource-container h2 { color: #333; font-size: 1.5rem; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
-    .resource-container h2:first-child { margin-top: 0; }
-    .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; }
-    .resource-item { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 10px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); text-decoration: none; color: #333; transition: all 0.3s ease; border: 1px solid #eee; }
-    .resource-item:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12); border-color: #007bff; }
-    .resource-item .icon { font-size: 2rem; margin-bottom: 8px; }
-    .resource-item .name { font-size: 0.9rem; text-align: center; word-break: break-all; }
-    .btn { padding: 10px 20px; border-radius: 5px; cursor: pointer; border: none; font-size: 14px; }
-    .btn-primary { background-color: #007bff; color: white; }
-    .btn-primary:hover { background-color: #0056b3; }
-    .btn-default { background-color: #6c757d; color: white; }
-    .btn-default:hover { background-color: #545b62; }
+/* 🔥 这三行强制让顶部星空显示出来，绝对有效 */
+body { background: transparent !important; }
+#main-container, .container { background: transparent !important; }
+#page-header { z-index: 9999 !important; position: relative !important; }
+
+/* 以下是你原来的样式，完全不动 */
+.resource-container { max-width: 900px; margin: 0 auto; padding: 20px;padding-top:90px; }
+.resource-container h2 { color: #333; font-size: 1.5rem; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+.resource-container h2:first-child { margin-top: 0; }
+.resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; }
+.resource-item { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px 10px; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); text-decoration: none; color: #333; transition: all 0.3s ease; border: 1px solid #eee; }
+.resource-item:hover { transform: translateY(-3px); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12); border-color: #007bff; }
+.resource-item .icon { font-size: 2rem; margin-bottom: 8px; }
+.resource-item .name { font-size: 0.9rem; text-align: center; word-break: break-all; }
+.btn { padding: 10px 20px; border-radius: 5px; cursor: pointer; border: none; font-size: 14px; }
+.btn-primary { background-color: #007bff; color: white; }
+.btn-primary:hover { background-color: #0056b3; }
+.btn-default { background-color: #6c757d; color: white; }
+.btn-default:hover { background-color: #545b62; }
 </style>
