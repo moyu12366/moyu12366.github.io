@@ -410,7 +410,7 @@ header-mask: 0.3
 </div>
 
 <script>
-    let API_BASE = 'https://reliable-daifuku-c6a219.netlify.app';
+    let API_BASE = 'https://reliable-daifuku-c6a219.netlify.app/.netlify/functions';
     let ADMIN_PASSWORD = '';
 
     // 显示提交弹窗
@@ -438,7 +438,7 @@ header-mask: 0.3
     async function loadDynamicResources() {
         const container = document.getElementById('dynamicResources');
         try {
-            const response = await fetch(API_BASE + '/api/resources');
+            const response = await fetch(API_BASE + '/resources');
             const result = await response.json();
 
             if (result.success && result.data.length > 0) {
@@ -469,7 +469,7 @@ header-mask: 0.3
         }
 
         try {
-            const response = await fetch(API_BASE + '/api/resources', {
+            const response = await fetch(API_BASE + '/resources', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, url, description })
@@ -503,7 +503,7 @@ header-mask: 0.3
         }
 
         try {
-            const response = await fetch(API_BASE + '/api/approve', {
+            const response = await fetch(API_BASE + '/approve', {
                 method: 'GET',
                 headers: { 'x-admin-password': ADMIN_PASSWORD }
             });
@@ -539,7 +539,7 @@ header-mask: 0.3
     // 审核通过资源
     async function approveResource(id) {
         try {
-            const response = await fetch(API_BASE + '/api/approve', {
+            const response = await fetch(API_BASE + '/approve', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ id, password: ADMIN_PASSWORD })
