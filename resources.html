@@ -8,12 +8,12 @@ header-mask: 0.3
 
 <div class="post-container">
     <div class="resource-container">
-        <!-- 提交资源按钮 -->
-        <div style="margin-bottom: 20px;">
-            <button id="submitBtn" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; z-index: 100;">
+        <!-- 提交资源按钮（优化了定位样式） -->
+        <div style="margin-bottom: 20px; position: relative; z-index: 101;">
+            <button id="submitBtn" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; position: relative; z-index: 102;">
                 📝 提交新资源
             </button>
-            <button id="adminBtn" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: 10px; z-index: 100;">
+            <button id="adminBtn" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; margin-left: 10px; position: relative; z-index: 102;">
                 🔐 审核面板
             </button>
         </div>
@@ -366,21 +366,22 @@ header-mask: 0.3
     </div>
 </div>
 
+<!-- 【重点修改】将弹窗移出容器，直接放在主体最外层，确保 fixed 覆盖全屏 -->
 <!-- 提交资源弹窗 -->
-<div id="submitModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
-    <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 500px;">
+<div id="submitModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99999; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 500px; color: #333;">
         <h3>📝 提交新资源</h3>
         <div style="margin-top: 20px;">
             <div style="margin-bottom: 15px;">
-                <label style="display: block; margin-bottom: 5px;">网站名称 *</label>
+                <label style="display: block; margin-bottom: 5px; text-align: left;">网站名称 *</label>
                 <input type="text" id="resourceName" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="例如：GitHub">
             </div>
             <div style="margin-bottom: 15px;">
-                <label style="display: block; margin-bottom: 5px;">网站链接 *</label>
+                <label style="display: block; margin-bottom: 5px; text-align: left;">网站链接 *</label>
                 <input type="url" id="resourceUrl" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="https://github.com">
             </div>
             <div style="margin-bottom: 20px;">
-                <label style="display: block; margin-bottom: 5px;">简介（可选）</label>
+                <label style="display: block; margin-bottom: 5px; text-align: left;">简介（可选）</label>
                 <textarea id="resourceDesc" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; min-height: 60px;" placeholder="简单描述一下这个网站..."></textarea>
             </div>
             <div style="display: flex; gap: 10px;">
@@ -392,12 +393,12 @@ header-mask: 0.3
 </div>
 
 <!-- 审核面板弹窗 -->
-<div id="adminModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; justify-content: center; align-items: center;">
-    <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+<div id="adminModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99999; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; max-height: 80vh; overflow-y: auto; color: #333;">
         <h3>🔐 审核面板</h3>
         <div id="adminContent" style="margin-top: 20px;">
             <div style="margin-bottom: 15px;">
-                <label style="display: block; margin-bottom: 5px;">管理员密码</label>
+                <label style="display: block; margin-bottom: 5px; text-align: left;">管理员密码</label>
                 <input type="password" id="adminPassword" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;" placeholder="输入密码">
             </div>
             <button onclick="loadPendingResources()" class="btn btn-primary">查看待审核</button>
@@ -416,11 +417,13 @@ header-mask: 0.3
     // 页面加载完成后执行
     document.addEventListener('DOMContentLoaded', function() {
         // 绑定按钮点击事件
-        document.getElementById('submitBtn').addEventListener('click', function() {
+        document.getElementById('submitBtn').addEventListener('click', function(e) {
+            e.preventDefault();
             document.getElementById('submitModal').style.display = 'flex';
         });
         
-        document.getElementById('adminBtn').addEventListener('click', function() {
+        document.getElementById('adminBtn').addEventListener('click', function(e) {
+            e.preventDefault();
             document.getElementById('adminModal').style.display = 'flex';
         });
         
@@ -514,7 +517,7 @@ header-mask: 0.3
                     container.innerHTML = '<p>没有待审核的资源</p>';
                 } else {
                     container.innerHTML = result.data.map(item => `
-                        <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px;">
+                        <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; text-align: left;">
                             <h4 style="margin: 0 0 5px 0;">${item.name}</h4>
                             <p style="margin: 5px 0; color: #666;">
                                 <a href="${item.url}" target="_blank">${item.url}</a>
