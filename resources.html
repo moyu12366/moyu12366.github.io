@@ -437,7 +437,7 @@ header-mask: 0.3
 </div>
 
 <script>
-    let API_BASE = 'https://moyu12366.pages.dev/api';
+    let API_BASE = window.location.origin + '/api';
 
     // 页面加载完成后执行
     document.addEventListener('DOMContentLoaded', function() {
@@ -468,19 +468,21 @@ header-mask: 0.3
         document.getElementById('adminModal').style.display = 'none';
     }
 
-    // 【修复问题3】加载已审核通过的动态资源
+        // 【修复问题3】加载已审核通过的动态资源（已加入反缓存机制）
     async function loadDynamicResources() {
         const container = document.getElementById('dynamicResources');
         try {
-            // 注意：这里改向 admin.js 获取带特定密码（或公开无密码拉取已审核列表）
-            // 如果你的 admin.js 获取列表必须要密码，可以在这里默认带上，或者让 admin.js GET 默认拉取 approved 状态的资源
-            // 鉴于你的 admin.js GET 限制了密码且只查 pending。我们需要改用拉取全部的通用接口。
-            // 临时适配：直接请求 /api/admin 不带密码会报错，所以我们在下面把已经加载通过的数据实时渲染。
-            // 为了让前端页面能看到通过的资源，我们在请求时必须提供一个不需要密码的公开拉取路径：
-            const response = await fetch(API_BASE + '/admin?action=get_approved');
+            // 🟢 核心修复：生成一个毫秒级时间戳，让每一次请求都具有唯一性，彻底绕过 Service Worker 和浏览器缓存
+            const timestamp = new Date().getTime();
+            
+            // 拼接时间戳到请求路径末尾
+            const response = await fetch(API_BASE + '/admin?action=get_approved&_t=' + timestamp, {
+                method: 'GET'
+            });
             const result = await response.json();
 
-            if (result.success && result.data && result.data.length > 0) {
+            // 🟢 细节优化：确保 success 为 true，且 data 是一个有数据的数组
+            if (result.success && Array.isArray(result.data) && result.data.length > 0) {
                 container.innerHTML = result.data.map(item => `
                     <a href="${item.url}" target="_blank" class="resource-item">
                         <span class="icon">🌐</span>
@@ -488,11 +490,12 @@ header-mask: 0.3
                     </a>
                 `).join('');
             } else {
-                container.innerHTML = '<p>暂无用户提交的资源</p>';
+                // 如果成功但没有数据，或者 success 为 false，及时清空旧的容器内容
+                container.innerHTML = '<p style="color: #999; font-size: 14px; text-align: center;">暂无用户提交的资源</p>';
             }
         } catch (e) {
-            console.error(e);
-            container.innerHTML = '<p>暂无用户提交的资源</p>';
+            console.error("实时动态资源加载失败:", e);
+            container.innerHTML = '<p style="color: #999; font-size: 14px; text-align: center;">暂无用户提交的资源</p>';
         }
     }
 
